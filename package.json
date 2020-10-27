@@ -5,5 +5,20 @@
   "main": "index.js",
   "author": "Alan M.",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "@mdx-js/mdx": "^1.6.19",
+    "@mdx-js/react": "^1.6.19",
+    "babel-plugin-styled-components": "^1.11.1",
+    "gatsby": "^2.24.87",
+    "gatsby-plugin-mdx": "^1.2.51",
+    "gatsby-plugin-styled-components": "^3.3.14",
+    "gatsby-source-filesystem": "^2.3.36",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "styled-components": "^5.2.0"
+  },
+  "scripts": {
+    "dev": "gatsby develop -p 9988 -o"
+  }
 }
