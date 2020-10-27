@@ -1,0 +1,9 @@
+{
+  "name": "meshcollider",
+  "version": "1",
+  "description": "Simple Gatsby blog for my ramblings.",
+  "main": "index.js",
+  "author": "Alan M.",
+  "license": "MIT",
+  "private": true
+}
