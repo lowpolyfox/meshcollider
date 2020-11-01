@@ -21,10 +21,8 @@ export default ({ data, pageContext }) => {
 
   return (
     <Layout>
-      <Dump previous={previous} />
-      <Dump next={next} />
 
-      <Dump
+      <SEO
         title={title}
         description={excerpt}
         image={
