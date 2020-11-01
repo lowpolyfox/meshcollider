@@ -2,16 +2,45 @@ import React from "react";
 import { graphql, Link } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import { Layout } from "../components/Layout";
-import Dump from "../components/Dump";
+import { useSiteMetadata } from "../hooks/useSiteMetadata";
+import SEO from 'react-seo-component';
 
 export default ({ data, pageContext }) => {
-  const { frontmatter, body } = data.mdx;
+  const { frontmatter, body, fields, excerpt } = data.mdx;
+  const { title, date, cover } = frontmatter;
   const { previous, next } = pageContext;
+
+  const {
+    image,
+    siteUrl,
+    siteLanguage,
+    siteLocale,
+    twitterUsername,
+    authorName,
+  } = useSiteMetadata();
 
   return (
     <Layout>
       <Dump previous={previous} />
       <Dump next={next} />
+
+      <Dump
+        title={title}
+        description={excerpt}
+        image={
+          cover === null
+            ? `${siteUrl}${image}`
+            : `${siteUrl}${cover.publicURL}`
+        }
+        pathname={`${siteUrl}${fields.slug}`}
+        siteLanguage={siteLanguage}
+        siteLocale={siteLocale}
+        twitterUsername={twitterUsername}
+        author={authorName}
+        article={true}
+        publishedDate={date}
+        modifiedDate={new Date(Date.now()).toISOString()}
+      />
 
       <h1>{frontmatter.title}</h1>
       <p>{frontmatter.date}</p>
@@ -45,10 +74,17 @@ export default ({ data, pageContext }) => {
 export const query = graphql`
   query PostBySlug($slug: String!) {
     mdx(fields: { slug: { eq: $slug } }) {
-      body
       frontmatter {
         title
-        date(formatString: "Do MMMM YYYY")
+        date(formatString: "YYYY MMMM Do")
+        cover {
+          publicURL
+        }
+      }
+      body
+      excerpt
+      fields {
+        slug
       }
     }
   }

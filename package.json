@@ -13,6 +13,7 @@
     "gatsby": "^2.24.87",
     "gatsby-image": "^2.4.21",
     "gatsby-plugin-mdx": "^1.2.51",
+    "gatsby-plugin-react-helmet": "^3.3.14",
     "gatsby-plugin-sharp": "^2.6.43",
     "gatsby-plugin-styled-components": "^3.3.14",
     "gatsby-remark-images": "^3.3.40",
@@ -20,9 +21,13 @@
     "gatsby-transformer-sharp": "^2.5.20",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-helmet": "^6.1.0",
+    "react-seo-component": "^2.0.2",
     "styled-components": "^5.2.0"
   },
   "scripts": {
-    "dev": "gatsby develop -p 9988 -o"
+    "dev": "gatsby develop -p 9988 -o",
+    "build": "gatsby build",
+    "serve": "gatsby serve -p 9500 -o"
   }
 }
