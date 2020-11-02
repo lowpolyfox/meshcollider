@@ -7,7 +7,7 @@ const siteMetadata = {
   siteLocale: `es_mx`,
   twitterUsername: `@alamalara`,
   authorName: `Alan Maldonado`,
-}
+};
 
 module.exports = {
   siteMetadata: siteMetadata,
@@ -44,6 +44,17 @@ module.exports = {
       options: {
         path: `${__dirname}/posts`,
         name: `posts`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Vollkorn`,
+            variants: [`700`,],
+          },
+        ],
       },
     },
   ],

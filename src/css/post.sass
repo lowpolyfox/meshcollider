@@ -1,3 +1,7 @@
+$body-air: 10rem
+$header-spacing: 5rem
+$navigator-height: 3.25rem
+  
 .post
   position: relative
 
@@ -14,14 +18,87 @@
       padding-top: 100%
       background-color: #EDEDED
 
-  &-content
+  &-main
     position: relative
-    padding-top: 5rem
+    padding: $header-spacing 0 $body-air
 
-  &-info
+  &-header
     h1
       font-size: 3rem
-      line-height: 1.4
+      line-height: 1.25
       margin: 0 0 1.5rem
-      text-indent: 50px
+      // text-indent: 50px
 
+    p
+      font-size: 1.125rem
+      margin-bottom: 0
+  
+  &-cover
+    max-width: 85%
+    padding-top: $header-spacing
+    margin-left: auto
+  
+  &-body
+    position: relative
+    padding-top: $header-spacing
+
+    p
+      font-size: 1.125rem
+      line-height: 1.5
+      margin-bottom: 1rem
+
+    &::before
+      position: absolute
+      left: 0
+      top: 0
+      width: 45%
+      height: 2px
+      transform: translate($x-padding, -100%)
+      background-color: $dark-grey
+      content: ""
+  
+  &-bar
+    position: fixed
+    left: 50%
+    bottom: 0
+    transform: translateX(-50%)
+
+.navigator
+  position: relative
+  display: flex
+  align-items: center
+  justify-content: center
+  width: 50%
+  height: $navigator-height
+  margin-left: auto
+  color: $white
+  background-color: $surface-black
+
+  span
+    font-weight: 600
+    text-transform: uppercase
+    letter-spacing: 0.25px
+
+  &-arrow
+    position: absolute
+    top: 0
+    display: flex
+    align-items: center
+    justify-content: center
+    width: $navigator-height
+    height: 100%
+    background-color: $surface-grey
+    transition: opacity 240ms ease-in
+
+    svg
+      color: $white
+      font-size: 1.5rem
+    
+    &.left
+      left: 0
+    
+    &.right
+      right: 0
+
+    &:hover
+      opacity: 0.75 

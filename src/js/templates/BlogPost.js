@@ -6,7 +6,8 @@ import { Layout } from "../components/Layout";
 import { useSiteMetadata } from "../hooks/useSiteMetadata";
 import SEO from "react-seo-component";
 
-import moment from "moment";
+import { BsChevronRight } from "react-icons/bs";
+import { BsChevronLeft } from "react-icons/bs";
 
 import "normalize.css";
 
@@ -49,46 +50,60 @@ export default ({ data, pageContext }) => {
           modifiedDate={new Date(Date.now()).toISOString()}
         />
 
-        <main className="post-content">
+        <main className="post-main">
           <div className="container">
             <div className="row">
-              <div className="col-6 post-info">
+              <div className="col-6 post-header">
                 <h1>{frontmatter.title}</h1>
+                <p>{frontmatter.date}</p>
+              </div>
+            </div>
 
-                <div>
-                  {frontmatter.date}
-                </div>
-
+            <div className="row post-content">
+              <div className="col-6">
                 {!!frontmatter.cover ? (
-                  <Img sizes={frontmatter.cover.childImageSharp.sizes} />
+                  <div className="post-cover">
+                    <Img sizes={frontmatter.cover.childImageSharp.sizes} />
+                  </div>
                 ) : null}
+              </div>
+
+              <div className="col-5 post-body">
+                <MDXRenderer>{body}</MDXRenderer>
               </div>
             </div>
           </div>
         </main>
 
-        <MDXRenderer>{body}</MDXRenderer>
+        <div className="post-bar container">
+          <div className="row">
+            <div className="col-6">
+              <div className="navigator">
+                {previous === false ? null : (
+                  <>
+                    {previous && (
+                      <Link to={previous.fields.slug} className="navigator-arrow left">
+                        <BsChevronLeft />
+                      </Link>
+                    )}
+                  </>
+                )}
 
-        {previous === false ? null : (
-          <>
-            {previous && (
-              <Link to={previous.fields.slug}>
-                <p>Previous</p>
-                <p>{previous.frontmatter.title}</p>
-              </Link>
-            )}
-          </>
-        )}
-        {next === false ? null : (
-          <>
-            {next && (
-              <Link to={next.fields.slug}>
-                <p>Next</p>
-                <p>{next.frontmatter.title}</p>
-              </Link>
-            )}
-          </>
-        )}
+                <span>Navegar</span>
+
+                {next === false ? null : (
+                  <>
+                    {next && (
+                      <Link to={next.fields.slug} className="navigator-arrow right">
+                        <BsChevronRight />
+                      </Link>
+                    )}
+                  </>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
       </Layout>
     </div>
   );
