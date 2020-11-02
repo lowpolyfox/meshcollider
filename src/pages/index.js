@@ -2,9 +2,9 @@ import React from "react";
 import Img from "gatsby-image";
 import { graphql, Link } from "gatsby";
 import styled from "styled-components";
-import { Layout } from "../components/Layout";
-import { useSiteMetadata } from "../hooks/useSiteMetadata";
-import SEO from 'react-seo-component';
+import { Layout } from "./../js/components/Layout";
+import { useSiteMetadata } from "./../js/hooks/useSiteMetadata";
+import SEO from "react-seo-component";
 import "./../css/index.sass";
 
 const IndexWrapper = styled.main``;
