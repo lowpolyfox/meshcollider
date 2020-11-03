@@ -34,7 +34,7 @@ export default ({ data }) => {
           <article key={id}>
             <Link to={fields.slug}>
               {!!frontmatter.cover ? (
-                <Img sizes={frontmatter.cover.childImageSharp.sizes} />
+                <Img sizes={frontmatter.cover.childImageSharp.sizes} fluid />
               ) : null}
               <h1>{frontmatter.title}</h1>
               <p>{frontmatter.date}</p>
