@@ -1,13 +1,13 @@
 const siteMetadata = {
-  title: `The Localhost Blog`,
-  description: `This is my coding blog where I write about my coding journey.`,
+  title: `AM.`,
+  description: `This blog looks like a long walk to the dumpster.`,
   image: `/static/img/placeholder.png`,
   siteUrl: `https://thelocalhost.blog`,
   siteLanguage: `es-MX`,
   siteLocale: `es_mx`,
   twitterUsername: `@alamalara`,
   authorName: `Alan Maldonado`,
-}
+};
 
 module.exports = {
   siteMetadata: siteMetadata,
@@ -45,6 +45,16 @@ module.exports = {
         path: `${__dirname}/posts`,
         name: `posts`,
       },
+    },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `PT Sans`,
+          `vollkorn\:600`,
+        ],
+        display: 'swap'
+      }
     },
   ],
 };
