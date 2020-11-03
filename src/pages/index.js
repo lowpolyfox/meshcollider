@@ -1,19 +1,11 @@
 import React from "react";
 import Img from "gatsby-image";
 import { graphql, Link } from "gatsby";
-import styled from "styled-components";
 import { Layout } from "./../js/components/Layout";
 import { useSiteMetadata } from "./../js/hooks/useSiteMetadata";
 import SEO from "react-seo-component";
 import "./../css/index.sass";
 
-const IndexWrapper = styled.main``;
-
-const PostWrapper = styled.article``;
-
-const Image = styled(Img)`
-  border-radius: 5px;
-`;
 
 export default ({ data }) => {
   const {
@@ -28,7 +20,7 @@ export default ({ data }) => {
 
   return (
     <Layout>
-      <IndexWrapper>
+      <main>
         <SEO
           title={title}
           description={description}
@@ -39,17 +31,17 @@ export default ({ data }) => {
           twitterUsername={twitterUsername}
         />
         {data.allMdx.nodes.map(({ id, frontmatter, fields }) => (
-          <PostWrapper key={id}>
+          <article key={id}>
             <Link to={fields.slug}>
               {!!frontmatter.cover ? (
-                <Image sizes={frontmatter.cover.childImageSharp.sizes} />
+                <Img sizes={frontmatter.cover.childImageSharp.sizes} />
               ) : null}
               <h1>{frontmatter.title}</h1>
               <p>{frontmatter.date}</p>
             </Link>
-          </PostWrapper>
+          </article>
         ))}
-      </IndexWrapper>
+      </main>
     </Layout>
   );
 };

@@ -24,14 +24,13 @@ $navigator-height: 3.25rem
 
   &-header
     h1
-      font-size: 3rem
-      line-height: 1.25
-      margin: 0 0 1.5rem
-      // text-indent: 50px
+      font-size: 3.5rem
+      letter-spacing: -1px
+      margin: 0 0 0.75rem
+      color: $dark-grey
 
     p
-      font-size: 1.125rem
-      margin-bottom: 0
+      font-size: 1.12rem
   
   &-cover
     max-width: 85%
@@ -44,8 +43,11 @@ $navigator-height: 3.25rem
 
     p
       font-size: 1.125rem
-      line-height: 1.5
+      line-height: 1.6
       margin-bottom: 1rem
+
+      &:first-child
+        margin-top: -8px
 
     &::before
       position: absolute
@@ -73,11 +75,13 @@ $navigator-height: 3.25rem
   margin-left: auto
   color: $white
   background-color: $surface-black
+  box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.03);
 
   span
+    font-size: 1rem
     font-weight: 600
     text-transform: uppercase
-    letter-spacing: 0.25px
+    letter-spacing: 1px
 
   &-arrow
     position: absolute

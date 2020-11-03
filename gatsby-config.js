@@ -47,15 +47,14 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [
-          {
-            family: `Vollkorn`,
-            variants: [`700`,],
-          },
+          `PT Sans`,
+          `vollkorn\:600`,
         ],
-      },
+        display: 'swap'
+      }
     },
   ],
 };
