@@ -12,9 +12,8 @@ const siteMetadata = {
 module.exports = {
   siteMetadata: siteMetadata,
   plugins: [
-    `gatsby-plugin-styled-components`,
-    `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
     {
@@ -44,6 +43,13 @@ module.exports = {
       options: {
         path: `${__dirname}/posts`,
         name: `posts`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/images`,
+        name: `images`,
       },
     },
     {

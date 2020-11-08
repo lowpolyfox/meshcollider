@@ -63,7 +63,7 @@ export default ({ data, pageContext }) => {
               <div className="col-6">
                 {!!frontmatter.cover ? (
                   <div className="post-cover">
-                    <Img sizes={frontmatter.cover.childImageSharp.sizes} />
+                    <Img fluid={frontmatter.cover.childImageSharp.fluid} />
                   </div>
                 ) : null}
               </div>
@@ -118,8 +118,8 @@ export const query = graphql`
         cover {
           publicURL
           childImageSharp {
-            sizes(maxWidth: 2000, traceSVG: { color: "#639" }) {
-              ...GatsbyImageSharpSizes_tracedSVG
+            fluid(maxWidth: 700, quality: 100, traceSVG: { color: "#000" }) {
+              ...GatsbyImageSharpFluid_tracedSVG
             }
           }
         }
